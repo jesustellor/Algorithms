@@ -27,6 +27,8 @@ console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 6));
 // 2^3.321928 = 10 or close to it
 
 // ln(x) what power do i need to raise e to in order to get to x, where e = 2.718281828459045235 
+// ln(x) = (e^y = x)
+// still learning.
 
 // ln(10) = 2.302585092994045684
 // ln(2) = 0.693147180559945309
