@@ -18,13 +18,23 @@
 }
 */
 
-// the first element is at index 0, and for simplicity have shown in nested objects
+/*
+	const n1 = { 
+	  data: 100,
+	}
+
+	const n2 = {
+		data: 200,
+	}
+
+	n1.next = n2;
+*/
 
 // define a node, each node is a separate object
 class Node {
-  constructor(value) {
+  constructor(value, next = null) {
     this.value = value;
-    this.next = null;
+    this.next = next;
   }
 }
 
@@ -32,35 +42,108 @@ class Node {
 class LinkedList {
   constructor() {
     this.head = null;
+    this.size = 0;
   }
 
-  append(value) {
-    const newNode = new Node(value);
+// insert first nodes
+insertFirst(value) { 
+  this.head = new Node(value, this.head);
+  this.size++;
+}
 
-    if (!this.head) {
-      this.head = newNode;
-      return;
-    }
-
-    let current = this.head;
+// insert last node 
+insertLast(value) { 
+ let node = new Node(value);
+  let current;
+  if (!this.head) {
+    this.head = node;
+  } else {
+    current = this.head;
     while (current.next) {
       current = current.next;
     }
-
-    current.next = newNode;
+    current.next = node;
   }
+}
 
-  // insert at the beginning
-  //insertFirst(value) {
-  //	const node = new Node(value);
-  //	node.next = this.head;
-  //	this.head = node;
-  //}
+// insert at index
+insertAt(value, index) {
+  if(index > 0 && index > this.size) {
+    return;
+  }
+  if(index === 0) {
+    this.insertFirst(value);
+    return;
+  }
+  const node = new Node(value);
+  let current, previous;
+  current = this.head;
+  let count = 0;
+  while(count < index) {
+    previous = current;
+    current = current.next;
+    count++;
+  }
+  node.next = current;
+  previous.next = node;
+  this.size++;
+}
+
+// get at index
+getAt(index) {
+  let current = this.head;
+  let count = 0;
+  while (current) {
+    if (count === index) {
+      console.log(current.value);
+    }
+    current = current.next;
+    count++;
+  }
+return null;
+}
+
+// remove at index
+removeAt(index) {
+if(index > 0 && index > this.size) {
+  return;
+}
+let current = this.head;
+let previous;
+let count = 0;
+if(index === 0) {
+  this.head = current.next;
+} else {
+  while(count < index) {
+    count++;
+    previous = current;
+    current = current.next;
+  }
+  previous.next = current.next;
+}
+this.size--;
+}
+// clear list
+clearList() {
+  this.head = null;
+  this.size = 0;
+}
+// print list data
+printListData() {
+  let current = this.head;
+  while (current) {
+    console.log(current.value);
+    current = current.next;
+  }
+this.size++;
+}
 }
 
 const list = new LinkedList();
-list.append(10);
-list.append(20);
-list.append(30);
+list.insertFirst(10);
+list.insertFirst(20);
+list.insertFirst(30);
+list.insertLast(40);
+list.removeAt(2);
 
-console.log(list);
+list.printListData();
