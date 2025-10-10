@@ -1,36 +1,3 @@
-// an array is a list fo elements that are stored contiguously in memory it looks like this
-
-//[1, 2, 3, 4, 5];
-
-// the first element is at index 0
-
-// linked lists are made up of nodes that have a value and a pointer to the next node and looks like this
-/*
-{
-	value: 1,
-	next: {
-		value: 2,
-		next: {
-			value: 3,
-			next: null
-		}
-	}
-}
-*/
-
-/*
-	const n1 = { 
-	  data: 100,
-	}
-
-	const n2 = {
-		data: 200,
-	}
-
-	n1.next = n2;
-*/
-
-// define a node, each node is a separate object
 class Node {
   constructor(value, next = null) {
     this.value = value;
@@ -147,3 +114,38 @@ list.insertLast(40);
 list.removeAt(2);
 
 list.printListData();
+
+
+// an array is a list fo elements that are stored contiguously in memory it looks like this
+
+//[1, 2, 3, 4, 5];
+
+// the first element is at index 0
+
+// linked lists are made up of nodes that have a value and a pointer to the next node and looks like this
+/*
+{
+	value: 1,
+	next: {
+		value: 2,
+		next: {
+			value: 3,
+			next: null
+		}
+	}
+}
+*/
+
+/*
+	const n1 = { 
+	  data: 100,
+	}
+
+	const n2 = {
+		data: 200,
+	}
+
+	n1.next = n2;
+*/
+
+// define a node, each node is a separate object
