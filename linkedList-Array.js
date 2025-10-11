@@ -45,7 +45,7 @@ class LinkedList {
     }
   }
 
-  // insert at index
+  // insert at index -- this is a test 
   insertAt(value, index) {
     if (index > 0 && index > this.size) {
       return;
@@ -120,6 +120,7 @@ class LinkedList {
 
 const list = new LinkedList();
 list.insertFirst(10);
+list.insertFirst(20);
 
 console.log(list.size);
 
